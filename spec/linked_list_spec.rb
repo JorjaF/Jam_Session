@@ -25,4 +25,21 @@ RSpec.describe LinkedList do
     list.append("doop")
     expect(list.count).to eq(1)
   end
+
+  it "can append multiple nodes" do
+    list = LinkedList.new
+    expect(list.head).to eq(nil)
+    
+    list.append("doop")
+    expect(list.head.data).to eq("doop")
+    expect(list.head.next_node).to eq(nil)
+
+    list.append("deep")
+    expect(list.head.next_node.data).to eq("deep")
+    expect(list.head.next_node.next_node).to eq(nil)
+    expect(list.count).to eq(2)
+  end
 end
+
+
+
