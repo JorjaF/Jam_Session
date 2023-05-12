@@ -29,4 +29,14 @@ class LinkedList
     end
     count
   end
+
+  def to_string #somehow I missed this in the interaction pattern 
+    current_node = @head
+    string = ""
+    while current_node.nil? == false
+      string += current_node.data + " "
+      current_node = current_node.next_node
+    end
+    string.strip
+  end
 end

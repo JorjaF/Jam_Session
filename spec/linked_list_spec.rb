@@ -26,6 +26,12 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(1)
   end
 
+  it "can return a string of all data" do
+    list = LinkedList.new
+    list.append("doop")
+    expect(list.to_string).to eq("doop")
+  end
+
   it "can append multiple nodes" do
     list = LinkedList.new
     expect(list.head).to eq(nil)
@@ -38,8 +44,6 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.data).to eq("deep")
     expect(list.head.next_node.next_node).to eq(nil)
     expect(list.count).to eq(2)
+    expect(list.to_string).to eq("doop deep")
   end
 end
-
-
-
