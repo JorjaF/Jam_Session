@@ -14,7 +14,6 @@ class LinkedList
     else
       current_node = @head
       until current_node.next_node == nil
-        count += 1
       end
       current_node.next_node = Node.new(data)
     end
@@ -38,5 +37,25 @@ class LinkedList
       current_node = current_node.next_node
     end
     string.strip
+  end
+
+  def prepend(data)
+    if @head == nil
+      @head = Node.new(data)
+    else
+      current_node = @head
+      @head = Node.new(data)  
+      @head.next_node = current_node
+    end
+  end
+
+  def insert(position, data)
+    current_node = @head
+    (position - 1).times do
+      current_node = current_node.next_node
+    end
+    new_node = Node.new(data)
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
   end
 end
