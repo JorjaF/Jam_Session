@@ -72,4 +72,23 @@ class LinkedList
     end
     string.strip
   end
+
+  def includes?(data)
+    current_node = @head
+    until current_node.nil?
+      return true if current_node.data == data
+      current_node = current_node.next_node
+    end
+    false
+  end
+
+  def pop
+    current_node = @head
+    until current_node.next_node.next_node == nil
+      current_node = current_node.next_node
+    end
+      return_me = current_node.next_node
+      current_node.next_node=nil
+    return return_me.data
+  end
 end
