@@ -14,6 +14,7 @@ class LinkedList
     else
       current_node = @head
       until current_node.next_node == nil
+        current_node = current_node.next_node
       end
       current_node.next_node = Node.new(data)
     end
@@ -57,5 +58,18 @@ class LinkedList
     new_node = Node.new(data)
     new_node.next_node = current_node.next_node
     current_node.next_node = new_node
+  end
+
+  def find(position, number_of_elements)
+    current_node = @head
+      position.times do
+      current_node = current_node.next_node
+    end
+    string = ""
+    number_of_elements.times do
+      string += current_node.data + " "
+      current_node = current_node.next_node
+    end
+    string.strip
   end
 end
