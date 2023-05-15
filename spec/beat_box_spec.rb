@@ -20,4 +20,41 @@ RSpec.describe BeatBox do
     expect(bb.count).to eq(6)
     expect(bb.list.to_string).to eq("deep doo ditt woo hoo shu")
   end
+
+  it "can list all the beats" do
+    bb = BeatBox.new("deep")
+    bb.append("Mississippi")
+    bb.all
+    expect(bb.all).to eq("deep")
+
+
+  end
+  it "can validate a beat" do
+    bb = BeatBox.new("deep")
+    bb.append("Mississippi")
+    bb.valid_beat?("Mississippi")
+    expect(bb.all).to eq("deep")
+
+    bb.prepend("tee tee tee Mississippi")
+    bb.all
+    expect(bb.all).to eq("tee tee tee deep")
+  end
+
+  it "can play a beat" do
+    bb = BeatBox.new("deep dop dop deep")
+    bb.play
+  end
+
+  it "can change the rate" do
+    bb = BeatBox.new("deep dop dop deep")
+    bb.rate = 100
+    bb.play
+  end
+
+  it "can change the voice" do
+    bb = BeatBox.new("deep dop dop deep")
+    bb.voice = "Daniel"
+    bb.rate = 100
+    bb.play
+  end
 end
