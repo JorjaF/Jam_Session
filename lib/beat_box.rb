@@ -14,4 +14,8 @@ class BeatBox
   def count
     @list.count
   end
+
+  def play
+    `say '#{list.to_string}'`
+  end
 end
